@@ -11,6 +11,7 @@ body {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 18px;
+    overflow-x: hidden;
 }
 
 a {
@@ -24,6 +25,22 @@ a,
 li,
 ul {
     line-height: 1.5em;
+}
+
+button {
+    background-color: transparent;
+    color: #ffffff;
+    border: solid 1px #ffffff;
+    border-radius: 5px;
+    padding: 0.5em;
+    cursor: pointer;
+    width: 10em;
+}
+
+button:hover {
+    background-color: #ff8000;
+    border-color: #ff8000;
+    transition: 0.3s;
 }
 
 
@@ -92,8 +109,54 @@ ul {
     align-items: center;
 }
 
+.port-container {
+    display: flex;
+}
 
+.port-desc {
+    width: 28em;
+}
 
+.port-img {
+    width: 28em;
+    border-radius: 10px;
+    box-shadow: 10px 10px 26px -10px rgba(0, 0, 0, 0.75);
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-email,
+.contact-phone {
+    flex-basis: 20%;
+}
+
+.contact-message {
+    flex-basis: 35%;
+}
+
+.contact-phone,
+.contact-email {
+    text-align: center;
+}
+
+.contact-profile img {
+    width: 12em;
+    border-radius: 100%;
+}
+
+footer div span {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+footer div span:hover {
+    color: #ff8000;
+    transition: 0.3s;
+}
 
 
 
@@ -108,6 +171,28 @@ ul {
     text-align: center;
 }
 
+.leftalign {
+    text-align: left;
+}
+
+.leftalign li {
+    line-height: 40px;
+}
+
+.box {
+    width: 200px;
+    height: 230px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover {
+    animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .ruler {
     border: solid 1px #3dccdb;
     background-color: #3dccdb;
@@ -117,6 +202,23 @@ ul {
 .limiter {
     max-width: 1500px;
     margin: auto;
+}
+
+.limiter-2 {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.btn-dark {
+    background-color: transparent;
+    border-color: #417fac;
+    color: #417fac;
+}
+
+.btn-dark:hover {
+    background-color: #3dccdb;
+    border-color: #3dccdb;
+    color: #ffffff;
 }
 
 
@@ -152,12 +254,28 @@ ul {
     color: #3dccdb;
 }
 
+.color-2nd {
+    color: #ff8000;
+}
+
+.color-3rd {
+    color: #417fac;
+}
+
 .color-light {
     color: #626262;
 }
 
+.color-inv {
+    color: #ffffff;
+}
+
 .bg-color-light {
     background-color: whitesmoke;
+}
+
+.bg-color-3rd {
+    background-color: #417fac;
 }
 
 
@@ -232,6 +350,44 @@ ul {
 }
 
 
+/* ---- Tooltip ----- */
+
+.tooltip-blue {
+    --balloon-color: #417fac;
+}
+
+.tooltip-big-text {
+    --balloon-font-size: 20px;
+}
+
+.tooltip-slide {
+    --balloon-move: 30px;
+}
+
+
+/* ----- Form ---- */
+
+input[type=text],
+input[type=search],
+textarea,
+select {
+    text-align: left;
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    /* EQUALS .color-4th */
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    resize: none;
+}
+
+input:focus,
+select:focus {
+    /* EQUALS .color-1st */
+    outline-color: #417fac;
+}
+
+
 
 
 /* ----- Animations ----- */
@@ -292,6 +448,19 @@ ul {
     }
 }
 
+@keyframes text-pop-up-top {
+    0% {
+        transform: translateY(0);
+        transform-origin: 50% 50%;
+    }
+
+    100% {
+        transform: translateY(-10px);
+        transform-origin: 50% 50%;
+    }
+}
+
+
 /* ----- Media Queries ----- */
 
 @media (max-width: 1100px) {
@@ -308,6 +477,53 @@ ul {
 
     .ruler {
         margin: 2em 2em 0 2em;
+    }
+
+    .port-container {
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .port-container .spaced-h-2x {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .port-desc {
+        margin: auto;
+        width: 80%;
+    }
+
+    .port-img {
+        margin: 0 auto 1em auto;
+        width: 80%;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact-message,
+    .contact-email,
+    .contact-phone {
+        margin-bottom: 6em;
+        width: 100%;
+    }
+
+    .contact-profile {
+        margin-bottom: 6em;
+    }
+
+    .contact-message .spaced-v-2x {
+        text-align: center;
+    }
+
+    #idContactSection .spaced-v-2x {
+        margin: 1em;
     }
 
 }
@@ -355,6 +571,14 @@ ul {
     .about-section div {
         flex-direction: row;
         text-align: center;
+    }
+
+    .port-desc {
+        width: 95%;
+    }
+
+    .port-img {
+        width: 95%;
     }
 
 }
